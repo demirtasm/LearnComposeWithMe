@@ -6,6 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Surface
@@ -43,6 +44,10 @@ fun UnitConverter(){
         })
         Row {
             //Here all the UI elements will be stacked next each other
+            Button(onClick = { /*TODO*/ }) {
+                Text(text = "Click Me")
+                
+            }
 
         }
         Text(text = "result")
@@ -50,6 +55,8 @@ fun UnitConverter(){
 }
 
 @Preview(showBackground = true) //Use the @Preview annotation to mark the next function for preview
+//To the @Preview annotation, add a parameter to show a background: showBackground = true.
+//Observe how the preview now has a white background, making elements more readable.
 @Composable
 fun UnitConverterPreview(){
     UnitConverter() //This will allow us to preview the unitConverter Composable.
