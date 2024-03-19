@@ -4,10 +4,14 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowDropDown
 import androidx.compose.material3.Button
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Surface
@@ -48,16 +52,38 @@ fun UnitConverter() {
         Row {
             //Here all the UI elements will be stacked next each other
             val context = LocalContext.current
-            Button(onClick = {
-                Toast.makeText(
-                    context,
-                    "Thanks for clicking",
-                    Toast.LENGTH_LONG
-                ).show()
-            }) {
-                Text(text = "Click Me")
 
+            Box {
+                /**
+                 * A box is layout element just like  row nd column.
+                 * It works differently n that it arranges and stacks composables on top of ach other.
+                 * It is commonly used to create custom nd complex layouts, because the dropdown enu cannot stand
+                 * on its own, as t required a parent, which can help it position itself on the screen
+                 */
+                Button(onClick = {
+                    Toast.makeText(
+                        context,
+                        "Thanks for clicking",
+                        Toast.LENGTH_LONG
+                    ).show()
+                }) {
+                    Text(text = "Select")
+                    Icon(Icons.Default.ArrowDropDown,"Arrow Down")
+                }
             }
+            Box {
+                Button(onClick = {
+                    Toast.makeText(
+                        context,
+                        "Thanks for clicking",
+                        Toast.LENGTH_LONG
+                    ).show()
+                }) {
+                    Text(text = "Select")
+                    Icon(Icons.Default.ArrowDropDown,"Arrow Down")
+                }
+            }
+
 
         }
         Text(text = "result")
