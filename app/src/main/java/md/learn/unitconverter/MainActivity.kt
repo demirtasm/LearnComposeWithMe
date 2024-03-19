@@ -52,5 +52,5 @@ fun UnitConverter(){
 @Preview(showBackground = true) //Use the @Preview annotation to mark the next function for preview
 @Composable
 fun UnitConverterPreview(){
-    UnitConverter()
+    UnitConverter() //This will allow us to preview the unitConverter Composable.
 }
