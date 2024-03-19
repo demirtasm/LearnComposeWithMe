@@ -45,20 +45,12 @@ fun UnitConverter(){
             //Here all the UI elements will be stacked next each other
 
         }
+        Text(text = "result")
     }
-}
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
 }
 
-@Preview(showBackground = true)
+@Preview(showBackground = true) //Use the @Preview annotation to mark the next function for preview
 @Composable
-fun GreetingPreview() {
-    UnitConverterTheme {
-        Greeting("Android")
-    }
+fun UnitConverterPreview(){
+    UnitConverter()
 }
