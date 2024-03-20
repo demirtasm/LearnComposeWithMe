@@ -11,9 +11,12 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowDropDown
 import androidx.compose.material3.Button
+import androidx.compose.material3.DropdownMenu
+import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
@@ -84,7 +87,31 @@ fun UnitConverter() {
                     Text(text = "Select")
                     Icon(Icons.Default.ArrowDropDown,"Arrow Down")
                 }
+                DropdownMenu(expanded = false, onDismissRequest = { /*TODO*/ }) {
+                    DropdownMenuItem(
+                        text = { Text(text = "Centimeters") },
+                        onClick = { /*TODO*/ }
+                    )
+                    DropdownMenuItem(
+                        text = { Text(text = "Meters") },
+                        onClick = { /*TODO*/ }
+                    )
+                    DropdownMenuItem(
+                        text = { Text(text = "Feet") },
+                        onClick = { /*TODO*/ }
+                    )
+                    DropdownMenuItem(
+                        text = { Text(text = "Milimieters") },
+                        onClick = { /*TODO*/ }
+                    )
+                }
+                /**
+                 * we have this expanded boolean.
+                 * it's a boolean which says is it expanded.
+                 * So is it drop down menu open or is it closed.
+                 */
             }
+            Spacer(modifier = Modifier.width(18.dp))
             Box {
                 Button(onClick = {
                     Toast.makeText(
