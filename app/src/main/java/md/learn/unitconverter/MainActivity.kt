@@ -8,7 +8,9 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowDropDown
 import androidx.compose.material3.Button
@@ -22,6 +24,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import md.learn.unitconverter.ui.theme.UnitConverterTheme
 
 class MainActivity : ComponentActivity() {
@@ -56,7 +59,7 @@ fun UnitConverter() {
         //Column is the parent of row
         //Here all the UI elements will be stacked below each other
         Text("Unit converter")
-
+        Spacer(modifier = Modifier.height(16.dp)) //Spacer is a blank element that is used to create a Space between two UI elements
         OutlinedTextField(value = "", onValueChange = {
             //Here goes what sould happen, when he value of our OutlinedTextField changes
         })
