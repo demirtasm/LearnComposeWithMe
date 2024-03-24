@@ -23,6 +23,10 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -50,7 +54,15 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun UnitConverter() {
-    Column (
+    var inputValue by remember { mutableStateOf("") }
+    var outputValue by remember {mutableStateOf("") }
+    var inputUnit by remember {mutableStateOf("Centimeters") }
+    var outputUnit by remember {mutableStateOf("Meters") }
+    var iExpanded by remember {mutableStateOf(false) }
+    var oExpanded by remember {mutableStateOf(false) }
+    var  conversionFactor = remember { mutableStateOf("0.01") }
+
+    Column(
         modifier = Modifier.fillMaxSize(), //we say fill max size
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
@@ -58,14 +70,15 @@ fun UnitConverter() {
          * Instead of using fill max size, which does that in all directions, we can also fill the max width
          * only on the horizontal direction, or fill max height on a vertical, so you have control over these
          */
-    ){
+    ) {
         //Column is the parent of row
         //Here all the UI elements will be stacked below each other
         Text("Unit converter")
         Spacer(modifier = Modifier.height(16.dp)) //Spacer is a blank element that is used to create a Space between two UI elements
-        OutlinedTextField(value = "", onValueChange = {
+        OutlinedTextField(value = inputValue, onValueChange = {
             //Here goes what sould happen, when he value of our OutlinedTextField changes
-        })
+            inputValue = it // enter someting into outlined textfield
+        }, label = { Text(text = "Enter Value")})
         Row {
             //Here all the UI elements will be stacked next each other
             val context = LocalContext.current
@@ -85,7 +98,7 @@ fun UnitConverter() {
                     ).show()
                 }) {
                     Text(text = "Select")
-                    Icon(Icons.Default.ArrowDropDown,"Arrow Down")
+                    Icon(Icons.Default.ArrowDropDown, "Arrow Down")
                 }
                 DropdownMenu(expanded = false, onDismissRequest = { /*TODO*/ }) {
                     DropdownMenuItem(
@@ -113,15 +126,27 @@ fun UnitConverter() {
             }
             Spacer(modifier = Modifier.width(18.dp))
             Box {
-                Button(onClick = {
-                    Toast.makeText(
-                        context,
-                        "Thanks for clicking",
-                        Toast.LENGTH_LONG
-                    ).show()
-                }) {
+                Button(onClick = { }) {
                     Text(text = "Select")
-                    Icon(Icons.Default.ArrowDropDown,"Arrow Down")
+                    Icon(Icons.Default.ArrowDropDown, "Arrow Down")
+                }
+                DropdownMenu(expanded = false, onDismissRequest = { /*TODO*/ }) {
+                    DropdownMenuItem(
+                        text = { Text(text = "Centimeters") },
+                        onClick = { /*TODO*/ }
+                    )
+                    DropdownMenuItem(
+                        text = { Text(text = "Meters") },
+                        onClick = { /*TODO*/ }
+                    )
+                    DropdownMenuItem(
+                        text = { Text(text = "Feet") },
+                        onClick = { /*TODO*/ }
+                    )
+                    DropdownMenuItem(
+                        text = { Text(text = "Milimieters") },
+                        onClick = { /*TODO*/ }
+                    )
                 }
             }
 
